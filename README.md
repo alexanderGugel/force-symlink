@@ -38,7 +38,7 @@ forceSymlink('/etc/hosts', 'link-to-hosts', function (err) {
 
 ```
 .
-└── some-link -> /etc/hosts
+└── link-to-hosts -> /etc/hosts
 ```
 
 License
