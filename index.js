@@ -23,9 +23,8 @@ function handleENOENT (srcPath, dstPath, type, cb) {
 }
 
 function forceSymlink (srcPath, dstPath, type, cb) {
+  cb = typeof type === 'function' ? type : cb
   type = typeof type === 'string' ? type : null
-
-  cb = cb || arguments[2]
 
   fs.symlink(srcPath, dstPath, type, function (err) {
     if (err && err.code === 'ENOENT') {

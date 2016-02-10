@@ -80,3 +80,17 @@ test('when containing directory doesn\'t exist', function (t) {
   verify(t)
   cleanup(t)
 })
+
+test('when type is given', function (t) {
+  cleanup(t)
+  setup(t)
+
+  t.test('it should invoke the callback', function (t) {
+    forceSymlink('../some-file', path.join(sandbox, 'some-link'), 'dir', function (err) {
+      t.end(err)
+    })
+  })
+
+  verify(t)
+  cleanup(t)
+})
