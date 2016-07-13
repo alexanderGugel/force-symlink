@@ -22,6 +22,12 @@ function handleENOENT (srcPath, dstPath, type, cb) {
   })
 }
 
+function handleEPERM (srcPath, dstPath, type, cb) {
+  forceSymlink(srcPath, dstPath, 'junction', function (err) {
+    return cb(err)
+  })
+}
+
 function forceSymlink (srcPath, dstPath, type, cb) {
   cb = typeof type === 'function' ? type : cb
   type = typeof type === 'string' ? type : null
@@ -34,6 +40,11 @@ function forceSymlink (srcPath, dstPath, type, cb) {
 
     if (err && err.code === 'EEXIST') {
       handleEEXIST(srcPath, dstPath, type, cb)
+      return
+    }
+
+    if (err && err.code === 'EPERM') {
+      handleEPERM(srcPath, dstPath, type, cb)
       return
     }
 
