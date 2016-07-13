@@ -26,7 +26,7 @@ function cleanup (t) {
 }
 
 function removeTrailingSlash(linkString) {
-  return linkString.replace(/[\/\\\\]$/, '')
+  return linkString.replace(/[\/\\]$/, '')
 }
 
 function verify (t) {
