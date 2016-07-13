@@ -6,7 +6,7 @@ force-symlink
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
 Like `fs.symlink`, but friendlier.
-Handles *ENOENT* and *EEXIST* errors.
+Handles *ENOENT*, *EEXIST* and *EPERM* errors.
 
 Usage
 -----
